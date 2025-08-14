@@ -29,3 +29,8 @@ const handleLogout = () => {
   document.getElementById("accountPage").style.display = "none";
   document.getElementById("logInPage").style.display = "flex"
 }
+
+const handleLogoutTwo = () => {
+  document.getElementById("accountPage2").style.display = "none";
+  document.getElementById("logInPage").style.display = "flex"
+}
