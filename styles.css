@@ -1,0 +1,231 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+#MiniHeading {
+  background-color: #1971b9;
+  /* padding: 20px; */
+  text-align: center;
+  height: 40px;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.headerLogo img {
+  height: 60px;
+}
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 4px solid #f0f9fb;
+  padding: 16px 0;
+  /* font-weight: bold; */
+}
+.navItem {
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.1s ease-in-out;
+}
+.navItem:hover{
+border-bottom: 2px solid #1971b9;
+color: #1971b9;
+}
+.subHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+.subDetails {
+  display: flex;
+  gap: 20px;
+}
+.subDetailItem {
+  /* font-weight: 600; */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.subDetailItem svg {
+  width: 24px;
+  height: 24px;
+}
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.mainTab {
+  background-color: white;
+  box-shadow: 0px 0px 6px rgb(172, 171, 171);
+}
+.mainTabLabel {
+  background-color: #0388f6;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+.leftTab {
+  flex: 2;
+  background-color: aliceblue;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: end;
+}
+.rightTab {
+  flex: 3;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.balanceItem {
+  display: flex;
+}
+.leftBalanceItem {
+  background-color: #71bbf8;
+  flex: 2;
+  display: flex;
+  justify-content: end;
+  padding: 12px;
+  font-weight: bold;
+}
+.rightBalanceItem {
+  flex: 3;
+  background-color: #bfeef885;
+  display: flex;
+  justify-content: start;
+  padding: 12px;
+  font-weight: 600;
+}
+.searchItem {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+  position: relative;
+}
+.searchItem div {
+  padding: 8px;
+  padding-left: 4px;
+  box-shadow: 1px 1px 4px gainsboro;
+  min-width: 200px;
+}
+.searchItem h6 {
+  position: absolute;
+  top: -14px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.searchItem p {
+  font-weight: bold;
+}
+.searchButton {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #679cc7;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+.currentDaySection {
+  display: flex;
+  flex-direction: column;
+}
+.currentDaySectionHeader {
+  background-color: #edf4f8;
+  font-weight: bold;
+  padding: 16px 12px;
+}
+.currentDaySectionHeader p {
+  border-right: 1px solid #afc9d8;
+}
+.currentDaySectionInfo {
+  padding: 12px;
+  font-size: 14px;
+}
+.calendarIcon {
+  width: 24px;
+  height: 24px;
+  fill: #1971b9;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+.minusIcon {
+  width: 32px;
+  height: 32px;
+  fill: #afc9d8;
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  /* background-color: gainsboro; */
+}
+.inputContainer p {
+  font-weight: bold;
+  font-size: 14px;
+}
+.inputContainer input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 28px;
+}
+.otherLink {
+  display: flex;
+  padding: 0 20px;
+  border-right: 1px solid white;
+  margin-bottom: 12px;
+  /* border-bottom: none;
+  border-top: none; */
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #0388f6;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loaderContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

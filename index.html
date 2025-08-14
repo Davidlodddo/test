@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Banking And Lending Solution</title>
+  </head>
+  <body>
+    <div id="loaderContainer" class="loaderContainer">
+      <span class="loader"></span>
+    </div>
+    <div
+      style="display: none; opacity: 0; transition: 1s ease-in-out"
+      id="accountPage"
+    >
+      <section id="MiniHeading">
+        <div class="container"></div>
+      </section>
+      <section id="Header">
+        <div class="container">
+          <div class="mainHeader">
+            <h1 style="font-size: 18px; color: #1971b9">Cash Manager Direct</h1>
+            <div class="headerLogo">
+              <img src="logo.png" alt="" />
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; cursor: pointer; position: relative;" class="account">
+              <p style="position: absolute; font-size: 12px; right: 0; top: -45px; color: white;">Account | Settings | <span onclick="handleLogout()">Log out</span>
+              <div>
+              <p style="font-size: 12px">Welcome</p>
+              <p style="font-size: 20px; font-weight: semi-bold">
+                Moris Yeroshalmy
+              </p>
+              </div>
+              <svg style="height: 16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+</svg>
+
+            </div>
+          </div>
+          <!-- <hr style="border-color: #f0f9fb" /> -->
+          <div class="navBar">
+            <div class="navItem">
+              <p>Dashboard</p>
+            </div>
+            <div style="color: #1971b9; border-bottom: 2px solid #1971b9;" class="navItem">
+              <p>Accounts</p>
+            </div>
+            <div class="navItem">
+              <p>Transfers</p>
+            </div>
+            <div class="navItem">
+              <p>Check Services</p>
+            </div>
+            <div class="navItem">
+              <p>Reports</p>
+            </div>
+            <div class="navItem">
+              <p>Administration</p>
+            </div>
+            <div class="navItem">
+              <p>Additional Cash Management Services</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        style="
+          background-color: #f0f9fb;
+          box-shadow: 0px 5px 3px rgb(172, 171, 171);
+          z-index: 10;
+          position: relative;
+        "
+        id="SubHeader"
+      >
+        <div class="container subHeaderContainer">
+          <div style="display: flex; align-items: center" class="subHeader">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6"
+              style="width: 44px; height: 44px; margin-right: 8px"
+            >
+              <path
+                d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z"
+                clip-rule="evenodd"
+              />
+              <path
+                d="M12 7.875a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z"
+              />
+            </svg>
+
+            <div>
+              <p style="font-size: 28px">Account Activity</p>
+              <p style="font-size: 14px">
+                Use this page to view your account activity, including pending
+                and processed transactions.
+              </p>
+            </div>
+          </div>
+          <div class="subDetails">
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"
+                />
+              </svg>
+
+              <p>Export</p>
+            </div>
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+                style="width: 24px; height: 24px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.875 1.5C6.839 1.5 6 2.34 6 3.375v2.99c-.426.053-.851.11-1.274.174-1.454.218-2.476 1.483-2.476 2.917v6.294a3 3 0 0 0 3 3h.27l-.155 1.705A1.875 1.875 0 0 0 7.232 22.5h9.536a1.875 1.875 0 0 0 1.867-2.045l-.155-1.705h.27a3 3 0 0 0 3-3V9.456c0-1.434-1.022-2.7-2.476-2.917A48.716 48.716 0 0 0 18 6.366V3.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM16.5 6.205v-2.83A.375.375 0 0 0 16.125 3h-8.25a.375.375 0 0 0-.375.375v2.83a49.353 49.353 0 0 1 9 0Zm-.217 8.265c.178.018.317.16.333.337l.526 5.784a.375.375 0 0 1-.374.409H7.232a.375.375 0 0 1-.374-.409l.526-5.784a.373.373 0 0 1 .333-.337 41.741 41.741 0 0 1 8.566 0Zm.967-3.97a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H18a.75.75 0 0 1-.75-.75V10.5ZM15 9.75a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V10.5a.75.75 0 0 0-.75-.75H15Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <p>Print</p>
+            </div>
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+                />
+              </svg>
+
+              <p>Help</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        style="background-color: gainsboro; min-height: 100vh"
+        id="MainBody"
+      >
+        <div class="container mainContainer">
+          <div class="mainTab">
+            <div class="mainTabLabel">
+              <p><strong>BALANCE SUMMARY</strong> - AS OF 14/08/2025 14:30</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="minusIcon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div style="display: flex">
+              <div class="leftTab">
+                <p style="font-weight: bold">
+                  Account
+                  <span style="color: maroon">*</span>
+                </p>
+              </div>
+              <div class="rightTab">
+                <div>
+                  <p
+                    style="
+                      font-weight: bold;
+                      border-bottom: 1px solid gainsboro;
+                      width: 360px;
+                      padding-bottom: 4px;
+                    "
+                  >
+                    9990351987 - 5 Salted Fish LLC-Money Market
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 30px;
+                  "
+                >
+                  <div class="balanceItem">
+                    <div class="leftBalanceItem">
+                      <p>Current Balance</p>
+                    </div>
+                    <div class="rightBalanceItem">
+                      <p>$30,040,902.22 As of 14/08/2025 14:30</p>
+                    </div>
+                  </div>
+                  <div class="balanceItem">
+                    <div class="leftBalanceItem">
+                      <p>Available Balance</p>
+                    </div>
+                    <div class="rightBalanceItem">
+                      <p>$30,040,902.22 As of 14/08/2025 14:30</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-bottom: 0" class="container mainContainer">
+          <div class="mainTab">
+            <div class="mainTabLabel">
+              <p>
+                <strong>ACCOUNT</strong> - 5 SALTED FISH LLC-MONEY MARKET - AS
+                OF 14/08/2025 14:30
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="minusIcon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 16px 0;
+              "
+            >
+              <div class="searchItem">
+                <h6>Search on</h6>
+                <div>
+                  <p>Absolute Date</p>
+                </div>
+              </div>
+              <div class="searchItem">
+                <h6>From</h6>
+                <div>
+                  <p>13/08/2025</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="calendarIcon"
+                  >
+                    <path
+                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="searchItem">
+                <h6>To</h6>
+                <div>
+                  <p>13/08/2025</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="calendarIcon"
+                  >
+                    <path
+                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="searchButton">
+                <p>Search</p>
+              </div>
+              <div class="searchButton">
+                <p>Reset Criteria</p>
+              </div>
+              <div class="searchButton">
+                <p>Edit my view</p>
+              </div>
+              <div style="width: 24px; color: #1971b9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div
+        style="padding-top: 0; padding-bottom: 0"
+        class="container mainContainer"
+      >
+        <div style="height: 220px" class="mainTab">
+          <div
+            style="background-color: rgb(175, 201, 216)"
+            class="mainTabLabel"
+          >
+            <p style="color: black">
+              <strong>CURRENT DAY ACTIVITY</strong>
+            </p>
+          </div>
+          <div style="display: flex">
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Date</p>
+              </div>
+              <div class="currentDaySectionInfo"><p>14/08/2025</p></div>
+            </div>
+            <div style="flex: 2" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Transaction Type</p>
+              </div>
+              <div class="currentDaySectionInfo"><p>Debit</p></div>
+            </div>
+            <div style="flex: 3" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Description</p>
+              </div>
+              <div class="currentDaySectionInfo">
+                <p>TRANSFER TO CK ******0364</p>
+              </div>
+            </div>
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Withdrawals</p>
+              </div>
+              <div
+                style="display: flex; justify-content: end"
+                class="currentDaySectionInfo"
+              >
+                <p>$-100,000.00</p>
+              </div>
+            </div>
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Deposits</p>
+              </div>
+              <div class="currentDaySectionInfo"><p></p></div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+        <div style="padding-top: 0" class="container mainContainer">
+          <div style="height: 320px" class="mainTab">
+            <div
+              style="background-color: rgb(175, 201, 216)"
+              class="mainTabLabel"
+            >
+              <p style="color: black">
+                <strong>PREVIOUS DAYS ACTIVITY</strong>
+              </p>
+            </div>
+            <div style="display: flex">
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Date</p>
+                </div>
+                <div class="currentDaySectionInfo"><p>11/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>11/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>10/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>08/08/2025</p></div>
+              </div>
+              <div style="flex: 2" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Transaction Type</p>
+                </div>
+                <div class="currentDaySectionInfo"><p>Debit</p></div>
+                <div class="currentDaySectionInfo"><p>Credit</p></div>
+                <div class="currentDaySectionInfo"><p>Credit</p></div>
+                <div class="currentDaySectionInfo"><p>Debit</p></div>
+              </div>
+              <div style="flex: 3" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Description</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER TO CK ******0364</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER FRM CK 9990314422</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER FRM CK 9990216886</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER TO CK ******0364</p>
+                </div>
+              </div>
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Withdrawals</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$-100,000.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p> -</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p> -</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$-12,000.00</p>
+                </div>
+              </div>
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Deposits</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>-</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$-15,000.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$-3,000.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>-</p>
+                </div>
+                <div class="currentDaySectionInfo"><p></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div
+      style="display: none; opacity: 0; transition: 1s ease-in-out"
+      id="accountPage2"
+    >
+      <section id="MiniHeading">
+        <div class="container"></div>
+      </section>
+      <section id="Header">
+        <div class="container">
+          <div class="mainHeader">
+            <h1 style="font-size: 18px; color: #1971b9">Cash Manager Direct</h1>
+            <div class="headerLogo">
+              <img src="logo.png" alt="" />
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; cursor: pointer; position: relative;" class="account">
+              <p style="position: absolute; font-size: 12px; right: 0; top: -45px; color: white; min-width: 300px; text-align: end;">Account | Settings | <span onclick="handleLogout()">Log out</span>
+              <div>
+              <p style="font-size: 12px">Welcome</p>
+              <p style="font-size: 20px; font-weight: semi-bold">
+                Abcny
+              </p>
+              </div>
+              <svg style="height: 16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+</svg>
+
+            </div>
+          </div>
+          <!-- <hr style="border-color: #f0f9fb" /> -->
+          <div class="navBar">
+            <div class="navItem">
+              <p>Dashboard</p>
+            </div>
+            <div style="color: #1971b9; border-bottom: 2px solid #1971b9;" class="navItem">
+              <p>Accounts</p>
+            </div>
+            <div class="navItem">
+              <p>Transfers</p>
+            </div>
+            <div class="navItem">
+              <p>Check Services</p>
+            </div>
+            <div class="navItem">
+              <p>Reports</p>
+            </div>
+            <div class="navItem">
+              <p>Administration</p>
+            </div>
+            <div class="navItem">
+              <p>Additional Cash Management Services</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        style="
+          background-color: #f0f9fb;
+          box-shadow: 0px 5px 3px rgb(172, 171, 171);
+          z-index: 10;
+          position: relative;
+        "
+        id="SubHeader"
+      >
+        <div class="container subHeaderContainer">
+          <div style="display: flex; align-items: center" class="subHeader">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6"
+              style="width: 44px; height: 44px; margin-right: 8px"
+            >
+              <path
+                d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z"
+                clip-rule="evenodd"
+              />
+              <path
+                d="M12 7.875a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z"
+              />
+            </svg>
+
+            <div>
+              <p style="font-size: 28px">Account Activity</p>
+              <p style="font-size: 14px">
+                Use this page to view your account activity, including pending
+                and processed transactions.
+              </p>
+            </div>
+          </div>
+          <div class="subDetails">
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"
+                />
+              </svg>
+
+              <p>Export</p>
+            </div>
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+                style="width: 24px; height: 24px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.875 1.5C6.839 1.5 6 2.34 6 3.375v2.99c-.426.053-.851.11-1.274.174-1.454.218-2.476 1.483-2.476 2.917v6.294a3 3 0 0 0 3 3h.27l-.155 1.705A1.875 1.875 0 0 0 7.232 22.5h9.536a1.875 1.875 0 0 0 1.867-2.045l-.155-1.705h.27a3 3 0 0 0 3-3V9.456c0-1.434-1.022-2.7-2.476-2.917A48.716 48.716 0 0 0 18 6.366V3.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM16.5 6.205v-2.83A.375.375 0 0 0 16.125 3h-8.25a.375.375 0 0 0-.375.375v2.83a49.353 49.353 0 0 1 9 0Zm-.217 8.265c.178.018.317.16.333.337l.526 5.784a.375.375 0 0 1-.374.409H7.232a.375.375 0 0 1-.374-.409l.526-5.784a.373.373 0 0 1 .333-.337 41.741 41.741 0 0 1 8.566 0Zm.967-3.97a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H18a.75.75 0 0 1-.75-.75V10.5ZM15 9.75a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V10.5a.75.75 0 0 0-.75-.75H15Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <p>Print</p>
+            </div>
+            <div class="subDetailItem">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+                />
+              </svg>
+
+              <p>Help</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        style="background-color: gainsboro; min-height: 100vh"
+        id="MainBody"
+      >
+        <div class="container mainContainer">
+          <div class="mainTab">
+            <div class="mainTabLabel">
+              <p><strong>BALANCE SUMMARY</strong> - AS OF 14/08/2025 14:30</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="minusIcon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div style="display: flex">
+              <div class="leftTab">
+                <p style="font-weight: bold">
+                  Account
+                  <span style="color: maroon">*</span>
+                </p>
+              </div>
+              <div class="rightTab">
+                <div>
+                  <p
+                    style="
+                      font-weight: bold;
+                      border-bottom: 1px solid gainsboro;
+                      width: 290px;
+                      padding-bottom: 4px;
+                    "
+                  >
+                    9990369760 - 23 MJ Pro Corporation
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 30px;
+                  "
+                >
+                  <div class="balanceItem">
+                    <div class="leftBalanceItem">
+                      <p>Current Balance</p>
+                    </div>
+                    <div class="rightBalanceItem">
+                      <p>$22,100,311.56 As of 14/08/2025 14:30</p>
+                    </div>
+                  </div>
+                  <div class="balanceItem">
+                    <div class="leftBalanceItem">
+                      <p>Available Balance</p>
+                    </div>
+                    <div class="rightBalanceItem">
+                      <p>$22,100,311.56 As of 14/08/2025 14:30</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-bottom: 0" class="container mainContainer">
+          <div class="mainTab">
+            <div class="mainTabLabel">
+              <p>
+                <strong>ACCOUNT</strong> - 5 SALTED FISH LLC-MONEY MARKET - AS
+                OF 14/08/2025 14:30
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="minusIcon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 16px 0;
+              "
+            >
+              <div class="searchItem">
+                <h6>Search on</h6>
+                <div>
+                  <p>Absolute Date</p>
+                </div>
+              </div>
+              <div class="searchItem">
+                <h6>From</h6>
+                <div>
+                  <p>13/08/2025</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="calendarIcon"
+                  >
+                    <path
+                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="searchItem">
+                <h6>To</h6>
+                <div>
+                  <p>13/08/2025</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="calendarIcon"
+                  >
+                    <path
+                      d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="searchButton">
+                <p>Search</p>
+              </div>
+              <div class="searchButton">
+                <p>Reset Criteria</p>
+              </div>
+              <div class="searchButton">
+                <p>Edit my view</p>
+              </div>
+              <div style="width: 24px; color: #1971b9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+        style="padding-top: 0; padding-bottom: 0"
+        class="container mainContainer"
+      >
+        <div style="height: 220px" class="mainTab">
+          <div
+            style="background-color: rgb(175, 201, 216)"
+            class="mainTabLabel"
+          >
+            <p style="color: black">
+              <strong>CURRENT DAY ACTIVITY</strong>
+            </p>
+          </div>
+          <div style="display: flex">
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Date</p>
+              </div>
+              <div class="currentDaySectionInfo"><p>14/08/2025</p></div>
+            </div>
+            <div style="flex: 2" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Transaction Type</p>
+              </div>
+              <div class="currentDaySectionInfo"><p>Paid Check 665000001</p></div>
+            </div>
+            <div style="flex: 3" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Description</p>
+              </div>
+              <div class="currentDaySectionInfo">
+                <p>CHECK PAID</p>
+              </div>
+            </div>
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Withdrawals</p>
+              </div>
+              <div
+                style="display: flex; justify-content: end"
+                class="currentDaySectionInfo"
+              >
+                <p>$-40,000.00</p>
+              </div>
+            </div>
+            <div style="flex: 1" class="currentDaySection">
+              <div class="currentDaySectionHeader">
+                <p>Deposits</p>
+              </div>
+              <div class="currentDaySectionInfo"><p></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div style="padding-top: 0" class="container mainContainer">
+          <div style="height: 320px" class="mainTab">
+            <div
+              style="background-color: rgb(175, 201, 216)"
+              class="mainTabLabel"
+            >
+              <p style="color: black">
+                <strong>PREVIOUS DAYS ACTIVITY</strong>
+              </p>
+            </div>
+            <div style="display: flex">
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Date</p>
+                </div>
+                <div class="currentDaySectionInfo"><p>13/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>13/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>12/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>12/08/2025</p></div>
+              </div>
+              <div style="flex: 2" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Transaction Type</p>
+                </div>
+                <div class="currentDaySectionInfo"><p>Credit</p></div>
+                <div class="currentDaySectionInfo"><p>Credit</p></div>
+                <div class="currentDaySectionInfo"><p>Credit</p></div>
+                <div class="currentDaySectionInfo"><p>Debit</p></div>
+              </div>
+              <div style="flex: 3" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Description</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER FRM CK 9990314422</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER FRM CK 9990314422</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER FRM CK 9990216886</p>
+                </div>
+                <div class="currentDaySectionInfo">
+                  <p>TRANSFER TO CK ******0386</p>
+                </div>
+              </div>
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Withdrawals</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>-</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p> -</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p> -</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$-43,000.00</p>
+                </div>
+              </div>
+              <div style="flex: 1" class="currentDaySection">
+                <div class="currentDaySectionHeader">
+                  <p>Deposits</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$1,300.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$14,000.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>$8,000.00</p>
+                </div>
+                <div
+                  style="display: flex; justify-content: end"
+                  class="currentDaySectionInfo"
+                >
+                  <p>-</p>
+                </div>
+                <div class="currentDaySectionInfo"><p></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div
+      style="
+        background-image: url(/bg.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+      id="logInPage"
+    >
+      <section id="logInSection">
+        <div style="width: 640px; margin: 0 auto">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              background-color: white;
+              padding: 8px 12px;
+              gap: 12px;
+              border-radius: 5px;
+              margin-bottom: 20px;
+            "
+            class="topInfoBox"
+          >
+            <img src="/blue-fd.svg" style="height: 18px" alt="" />
+
+            <p style="font-size: 14px; font-style: italic">
+              FDIC-Insured - Backed by the full faith and credit of the U.S.
+              Government
+            </p>
+          </div>
+          <div
+            style="background-color: white; border-radius: 5px"
+            class="logInContainer"
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+                padding-bottom: 30px;
+                align-items: center;
+                border-bottom: 1px solid black;
+              "
+            >
+              <!-- Logo Goes Here -->
+              <img src="/bluelogo.png" alt="" />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgb(247, 247, 247);
+              "
+            >
+              <div style="width: 360px; display: flex; flex-direction: column">
+                <div class="inputContainer">
+                  <p>Login ID</p>
+                  <input id="username" autocomplete="off" type="text" />
+                </div>
+                <div class="inputContainer">
+                  <p>Password</p>
+                  <input type="password" />
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    margin: 24px 0;
+                  "
+                >
+                  <input
+                    style="height: 18px; width: 18px"
+                    type="checkbox"
+                    name=""
+                    id=""
+                  />
+                  <p>Remember Me</p>
+                </div>
+                <div
+                  style="
+                    background-color: rgb(105, 36, 164);
+                    color: white;
+                    padding: 12px;
+                    text-align: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  "
+                  class="logInButton"
+                  onclick="handleLogin()"
+                >
+                  Log In
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: end;
+                    margin-top: 32px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <p>Forgot your password?</p>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                background-color: rgb(66, 66, 66);
+                display: flex;
+                justify-content: center;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                padding: 20px;
+                color: white;
+                flex-wrap: wrap;
+                /* gap: 12px; */
+              "
+            >
+              <div class="otherLink">
+                <p>Enroll Personal Accounts</p>
+              </div>
+              <div class="otherLink">
+                <p>Forgot Login</p>
+              </div>
+              <div class="otherLink">
+                <p>Contact Us</p>
+              </div>
+              <div class="otherLink">
+                <p>Locations</p>
+              </div>
+              <div class="otherLink">
+                <p>Privacy Policy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
