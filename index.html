@@ -514,7 +514,7 @@
               <div>
               <p style="font-size: 12px">Welcome</p>
               <p style="font-size: 20px; font-weight: semi-bold">
-                Abcny
+                NY LLC OPERATING
               </p>
               </div>
               <svg style="height: 16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -652,7 +652,7 @@
         <div class="container mainContainer">
           <div class="mainTab">
             <div class="mainTabLabel">
-              <p><strong>BALANCE SUMMARY</strong> - AS OF 14/08/2025 14:30</p>
+              <p><strong>BALANCE SUMMARY</strong> - AS OF 22/09/2025 13:30</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -683,7 +683,7 @@
                       padding-bottom: 4px;
                     "
                   >
-                    9990369760 - 23 MJ Pro Corporation
+                    226070474 - NY LLC OPERATING
                   </p>
                 </div>
                 <div
@@ -698,7 +698,7 @@
                       <p>Current Balance</p>
                     </div>
                     <div class="rightBalanceItem">
-                      <p>$22,100,311.56 As of 14/08/2025 14:30</p>
+                      <p>$55,300,311.56 As of 22/09/2025 08:40</p>
                     </div>
                   </div>
                   <div class="balanceItem">
@@ -706,7 +706,7 @@
                       <p>Available Balance</p>
                     </div>
                     <div class="rightBalanceItem">
-                      <p>$22,100,311.56 As of 14/08/2025 14:30</p>
+                      <p>$55,300,311.56 As of 22/09/2025 08:40</p>
                     </div>
                   </div>
                 </div>
@@ -751,7 +751,7 @@
               <div class="searchItem">
                 <h6>From</h6>
                 <div>
-                  <p>13/08/2025</p>
+                  <p>22/09/2025</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -772,7 +772,7 @@
               <div class="searchItem">
                 <h6>To</h6>
                 <div>
-                  <p>13/08/2025</p>
+                  <p>22/10/2025</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -834,7 +834,7 @@
               <div class="currentDaySectionHeader">
                 <p>Date</p>
               </div>
-              <div class="currentDaySectionInfo"><p>14/08/2025</p></div>
+              <div class="currentDaySectionInfo"><p>22/09/2025</p></div>
             </div>
             <div style="flex: 2" class="currentDaySection">
               <div class="currentDaySectionHeader">
@@ -885,10 +885,10 @@
                 <div class="currentDaySectionHeader">
                   <p>Date</p>
                 </div>
-                <div class="currentDaySectionInfo"><p>13/08/2025</p></div>
-                <div class="currentDaySectionInfo"><p>13/08/2025</p></div>
-                <div class="currentDaySectionInfo"><p>12/08/2025</p></div>
-                <div class="currentDaySectionInfo"><p>12/08/2025</p></div>
+                <div class="currentDaySectionInfo"><p>22/09/2025</p></div>
+                <div class="currentDaySectionInfo"><p>21/09/2025</p></div>
+                <div class="currentDaySectionInfo"><p>20/09/2025</p></div>
+                <div class="currentDaySectionInfo"><p>19/09/2025</p></div>
               </div>
               <div style="flex: 2" class="currentDaySection">
                 <div class="currentDaySectionHeader">
@@ -1013,9 +1013,10 @@
               Government
             </p>
           </div>
-          <div
+          <form
             style="background-color: white; border-radius: 5px"
             class="logInContainer"
+            id="loginForm"
           >
             <div
               style="
@@ -1041,11 +1042,11 @@
               <div style="width: 360px; display: flex; flex-direction: column">
                 <div class="inputContainer">
                   <p>Login ID</p>
-                  <input id="username" autocomplete="off" type="text" />
+                  <input id="username" required autocomplete="off" type="text" />
                 </div>
                 <div class="inputContainer">
                   <p>Password</p>
-                  <input type="password" />
+                  <input type="password" required minlength="8" />
                 </div>
                 <div
                   style="
@@ -1063,7 +1064,7 @@
                   />
                   <p>Remember Me</p>
                 </div>
-                <div
+                <button
                   style="
                     background-color: rgb(105, 36, 164);
                     color: white;
@@ -1073,10 +1074,10 @@
                     cursor: pointer;
                   "
                   class="logInButton"
-                  onclick="handleLogin()"
+                  type="submit"
                 >
                   Log In
-                </div>
+              </button>
                 <div
                   style="
                     display: flex;
@@ -1118,10 +1119,21 @@
                 <p>Privacy Policy</p>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </section>
     </div>
+    <!-- OTP Modal -->
+<div id="otpModal" class="modal">
+  <div class="modal-content">
+    <h3>Enter verification code</h3>
+    <p style="font-size: 14px; margin: 12px 0;">We sent you a verification code by text message to (+1)xxx-xx12. You only have 3 attempts</p>
+
+    <input type="password" inputmode="numeric" pattern="[0-9]" minlength="6" maxlength="6" id="otpInput"  placeholder="Enter OTP" />
+    <br>
+    <button onclick="handleLogin()">Submit OTP</button>
+  </div>
+</div>
 
     <script src="script.js"></script>
   </body>
